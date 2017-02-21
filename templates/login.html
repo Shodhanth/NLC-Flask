@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block page_title %} {{user.username}} {% endblock page_title %}
+
+{% block page_styles %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+            background: #2a2a2e;
+            color: #ffffff;
+        }
+        input[type='file'] {
+            border: none;
+            outline: none;
+            padding: 1em 4.5em;
+            border-radius: 2em;
+            color: #ffffff;
+            font-family: 700;
+            font-size: 0.9em;
+            margin-top: 3em;
+            background: #9C27B0; 
+        }
+    </style>
+{% endblock page_styles %}
+
+{% block content %}
+    {% if user %}
+        <div style="text-align:justify;"  class="container text-center">
+            <div class="row">
+                <div class="container">
+                    <div class="container-fluid">
+                        <h2>User Information: {{user.fullname}}</h2>
+                    </div>
+                    <h3>Username : {{ user.username }}</h3>
+                    <h3>Email : {{ user.email }}</h3>
+                    <h3>College : {{ user.college_name }}</h3>
+                    <h3>Phone : {{ user.phone }}</h3>
+                    <h3>Project : {{ user.project_name }}</h3>
+                    <form action="/upload/{{ user.username }}" enctype = "multipart/form-data" method="post">
+                        <div class="form-group">
+                        <input type="file" name="paper">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+            </div>
+        </div>
+    {% else %}
+        <h2>You need to login first</h2>
+        <a href="/">Login</a>
+    {% endif %}
+{% endblock content %}
