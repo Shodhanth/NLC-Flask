@@ -23,7 +23,7 @@ app.secret_key = os.urandom(24)
 app.debug = True
 session = []
 username = "root"
-password = 'Dw1Ut8'
+password = ''
 usernumber = 0
 
 UPLOAD_FOLDER = '/home/a0_/Flask/NLC/Uploads/'
