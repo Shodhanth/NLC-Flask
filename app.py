@@ -12,7 +12,6 @@ from werkzeug import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 from sqlalchemy.exc import IntegrityError
-from decos import login_required
 import hashlib
 import datetime
 import os
@@ -23,11 +22,11 @@ app.secret_key = os.urandom(24)
 app.debug = True
 session = []
 username = "root"
-password = ''
+password = 'computer'
 usernumber = 0
 
-UPLOAD_FOLDER = '/home/a0_/Flask/NLC/Uploads/'
-ALL_PAPERS = '/home/a0_/Flask/NLC/Uploads/All/'
+UPLOAD_FOLDER = '/home/computer/Flask/NLC/Uploads/'
+ALL_PAPERS = '/home/computer/Flask/NLC/Uploads/All/'
 ALLOWED_EXTENSIONS = set(['pdf', 'PDF'])
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+username+':'+password+'@127.0.0.1/nlcweb'
@@ -143,11 +142,11 @@ def register():
 @app.route('/login', methods=['GET','POST'])
 def login():
 	if request.method == 'POST':
-		username = request.form['username']
+		email = request.form['email']
 		password_form = request.form['password']
 		hashd = hashlib.md5(bytes(password_form, 'utf-8'))
 		hashd = hashd.hexdigest()
-		user = Users.query.filter_by(username=username).first()
+		user = Users.query.filter_by(email=email).first()
 
 		if user.password == hashd :
 			return render_template('login.html',user=user)

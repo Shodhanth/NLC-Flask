@@ -66,6 +66,11 @@ h1, h2, h3, h4, h5, h6 {
       margin-top: 3em;
       background: #9C27B0; }
 
+#hero-block img{
+  margin-top: -2.5em;
+  margin-bottom: 1.5em;
+}
+
 #main-body {
   width: 100%;
   padding: 6em;
@@ -111,3 +116,17 @@ h1, h2, h3, h4, h5, h6 {
       text-decoration: none;
       color: #ffffff;
       margin: 1.6em 0 0 0; }
+
+.contacts {
+  width: 100%;
+  margin: 0.6em 2.5em;
+  text-align: center;
+}
+
+.row .main{
+  display: inline-block;
+}
+
+.main {
+  margin: 0 3em;
+}
