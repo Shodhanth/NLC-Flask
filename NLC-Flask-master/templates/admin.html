@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block page_title%}NLC ADMIN{% endblock page_title %}
+
+{% block page_styles %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="static/css/admin/cover.css">
+{% endblock page_styles %}
+
+{% block page_scripts %}
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{% endblock page_scripts %}
+{% block page_meta %}{% endblock page_meta %}
+
+{% block content %}
+<div class="site-wrapper">
+	<div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          	<div class="masthead clearfix">
+            	<div class="inner">
+              		<h3 class="masthead-brand">NLC Admin Page</h3>
+            	</div>
+          	</div>
+          	<div class="inner cover">
+            	<div class="row">
+              		<div class="col-xs-6 col-sm-4"></div> 
+              		<div class="col-xs-6 col-sm-4">  
+                		<form action="/admin/login" method="post" role="form">
+                  			<div class="form-group">
+                    			<label for="username">Username : </label>
+                    			<input class="form-control" type="text" name="username" required/>
+                  			</div>
+                  			<div class="form-group">
+                    			<label for="password">Password : </label>
+                    			<input class="form-control" type="password" name="password" required/>
+                  			</div>
+                  			<button type="submit" class="btn btn-primary">Login</button>
+                  			<a class="btn btn-danger" href="/">Get me out!</a>
+                		</form><br>
+            		</div>
+            		<div class="col-xs-6 col-sm-4"></div>
+            	</div>
+          	</div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

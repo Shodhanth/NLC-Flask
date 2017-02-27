@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block page_title %} Dashboard {% endblock page_title %}
+
+{% block page_styles %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% endblock page_styles %}
+{% block page_scripts %}{% endblock page_scripts %}
+{% block page_meta %}{% endblock page_meta %}
+
+{% block content %}
+	<nav class="navbar navbar-default">
+	  	<div class="container-fluid">
+		    <div class="navbar-header">
+	    		<a class="navbar-brand" href="#">
+		        <img alt="Brand" src="http://ltce.in/images/ltce_logo.svg?crc=249994144">
+		      	</a>
+		      	<p>{{ user }}</p>
+		    </div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<h3>Announcement Table</h3>
+		<table class="table">
+			<a class="btn btn-primary" href="/create">Create New Annoncement</a>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Announcement</th>
+					<th>Created</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for data in annonce %}
+					<tr>
+						<td>{{ data.id }}</td>
+						<td>{{ data.announcements }}</td>
+						<td>{{ data.created }}</td>
+						<td><a class="btn btn-danger" href="/dashboard/delete/{{ data.id }}">DELETE</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<hr>
+	<div class="container-fluid">
+		<h3>User Table</h3>
+		<a class="btn btn-primary" href="/papers/all">Get All Papers</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Username</th>
+					<th>Email</th>
+					<th>College</th>
+					<th>Topic</th>
+					<th>Phone</th>
+					<th>Paper</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for data in users %}
+					<tr>
+						<td>{{ data.id }}</td>
+						<td>{{ data.fullname }}</td>
+						<td>{{ data.username }}</td>
+						<td>{{ data.email | truncate(20) }}</td>
+						<td>{{ data.college_name }}</td>
+						<td>{{ data.project_name | truncate(30) }}</td>
+						<td>{{ data.phone }}</td>
+						<td><a class="btn btn-primary" href="/paper/{{ data.username }}/{{ data.username }}.pdf">Paper</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock content %}

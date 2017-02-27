@@ -1,0 +1,49 @@
+
+
+
+{% block page_scripts %}{% endblock page_scripts %}
+{% block page_meta %}{% endblock page_meta %}
+
+{% block page_styles %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/register.css">
+{% endblock page_styles %}
+	
+{% block page_title %}<title>Register | NLC</title>{% endblock page_title%}
+
+{% block content %}
+	<header id="header" class="clearfix">
+		<div class="wrapper">
+			<img height="50" width="55" src="static/assets/ltcoe.png">
+			<h2><a href="/">LTCOE</a></h2>
+			<nav id="main-nav">
+				<!-- <a href="/about">About Us</a> -->
+				<a href="#" class="drpdwn">Downloads</a>
+				<!-- <div class="dropdown">
+					<a href="#">Sample Paper</a>
+					<a href="#">Rules</a>
+					<a href="#">Sample Topics</a>
+				</div> -->
+				<!-- <a href="/committee">Committees</a> -->
+				<a href="/register">Register</a>
+			</nav>
+		</div>		
+	</header>
+	<section id="register-form">
+		<div class="hero-block">
+			<div class="sign-up">
+				<form action="/register" method="post">
+					<input type="text" name="fullname" placeholder="Full Name" required>
+					<input type="email" name="email" placeholder="Email" required>
+					<input type="text" name="college_name" placeholder="College Name" required>
+					<input type="text" name="phone" placeholder="Phone Number" required>
+					<input type="text" name="project_name" placeholder="Project Name" required>
+					<input type="password" name="password" placeholder="Password" required>
+					<button id="button">Register</button>
+				</form>
+			</div>
+		</div>
+	</section>
+{% endblock content %}
